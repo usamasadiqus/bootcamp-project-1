@@ -1,20 +1,27 @@
 import "./App.css";
+
+// Import components from components folder
 import Balance from "./components/Balance";
 import Header from "./components/Header";
 import IncomeExpenses from "./components/IncomeExpenses";
 import TransactionList from "./components/TransactionList";
 import AddTransaction from "./components/AddTransaction";
 
-function App() {
+// Import GlobalProvider in GlobalState file from context folder
+import { GlobalProvider } from "./context/GlobalState";
+
+const App = () => {
   return (
-    <div className="container">
+    <GlobalProvider>
       <Header />
-      <Balance />
-      <IncomeExpenses />
-      <TransactionList />
-      <AddTransaction />
-    </div>
+      <div className="container">
+        <Balance />
+        <IncomeExpenses />
+        <TransactionList />
+        <AddTransaction />
+      </div>
+    </GlobalProvider>
   );
-}
+};
 
 export default App;
